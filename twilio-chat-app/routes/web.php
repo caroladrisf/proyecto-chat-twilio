@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/services', 'ServiceController@get');
+Route::get('channels', 'ChannelController@index');
