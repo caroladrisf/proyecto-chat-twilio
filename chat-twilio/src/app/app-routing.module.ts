@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ChannelsCrudComponent } from './components/channels-crud/channels-crud.component';
-import { ChatComponent } from './components/chat/chat.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ChatComponent
+    component: HomeComponent
   },
   {
-    path: 'session',
+    path: 'admin',
     component: LoginComponent
   },
   {

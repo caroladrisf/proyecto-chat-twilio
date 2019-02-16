@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-8">
+    <div *ngIf="auth(); then chat; else welcome"></div>
+    <ng-template #welcome>
+      <app-welcome></app-welcome>
+    </ng-template>
+    <ng-template #chat>
+        <app-chat></app-chat>
+      </ng-template>
+  </div>
+
+  <div class="col-lg-4">
+    <app-channels-list></app-channels-list>
+  </div>
+</div>
