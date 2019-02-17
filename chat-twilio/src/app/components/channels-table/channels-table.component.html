@@ -1,3 +1,19 @@
-<p>
-  channels-table works!
-</p>
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Friendly name</th>
+      <th scope="col">Members count</th>
+      <th scope="col" colspan="2">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let channel of channels">
+      <th scope="row">1</th>
+      <td>{{ channel.friendly_name }}</td>
+      <td>{{ channel.members_count }}</td>
+      <td><a class="btn btn-primary btn-sm" href="#">Edit</a></td>
+      <td><a class="btn btn-danger btn-sm" href="#">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
