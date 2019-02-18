@@ -1,11 +1,11 @@
 <div class="card">
     <h4 class="card-header text-center text-white bg-dark">Create channel</h4>
   <div class="card-body">
-    <form method="POST">
+    <form>
       <div class="form-group">
-        <input type="text" class="form-control" id="friendlyName" placeholder="Friendly name">
+        <input type="text" class="form-control" [(ngModel)]="friendlyName" name="friendlyName" placeholder="Friendly name" autofocus>
       </div>
-      <button type="submit" class="btn btn-secondary btn-block">Save</button>
+      <button class="btn btn-secondary btn-block" (click)="save()">Save</button>
     </form>
   </div>
 </div>

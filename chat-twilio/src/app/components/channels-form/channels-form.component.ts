@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChannelService } from 'src/app/services/channel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-channels-form',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChannelsFormComponent implements OnInit {
 
-  constructor() { }
+  private friendlyName: string;
+  constructor(private service: ChannelService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  save() {
+    if (this.friendlyName) {
+      this.service.create(localStorage.getItem('service_sid'), this.friendlyName).subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/channels']);
+        }
+      );
+    } else {
+      alert('Friendly name is required');
+    }
   }
 
 }
