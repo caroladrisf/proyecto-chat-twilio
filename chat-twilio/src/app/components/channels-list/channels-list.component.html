@@ -1,7 +1,8 @@
 <h3>Channels</h3>
 
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action" *ngFor="let channel of channels">
+  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngFor="let channel of channels">
     {{ channel.friendly_name }}
+    <span class="badge badge-success badge-pill">{{ channel.members_count }}</span>
   </a>
 </div>

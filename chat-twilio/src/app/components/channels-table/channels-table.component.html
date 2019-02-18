@@ -4,7 +4,9 @@
       <th scope="col">#</th>
       <th scope="col">Friendly name</th>
       <th scope="col">Members count</th>
-      <th scope="col" colspan="2">Options</th>
+      <th scope="col" colspan="2">
+        Options <!-- <a class="btn btn-link" (click)="getList()"><i class="fas fa-sync"></i></a> -->
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +14,8 @@
       <th scope="row">1</th>
       <td>{{ channel.friendly_name }}</td>
       <td>{{ channel.members_count }}</td>
-      <td><a class="btn btn-primary btn-sm" href="#">Edit</a></td>
-      <td><a class="btn btn-danger btn-sm" href="#">Delete</a></td>
+      <td><button class="btn btn-primary btn-sm">Edit</button></td>
+      <td><button class="btn btn-danger btn-sm" (click)="delete(channel.sid)">Delete</button></td>
     </tr>
   </tbody>
 </table>
