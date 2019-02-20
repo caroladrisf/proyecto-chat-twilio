@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ChannelService } from '../../services/channel.service';
 import { Channel } from 'src/app/models/channel';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-channels-list',
@@ -11,11 +12,13 @@ import { Channel } from 'src/app/models/channel';
 export class ChannelsListComponent implements OnInit {
 
   private channels: Channel[];
+  private channelSid: string;
+  private identity: string;
 
-  constructor(private service: ChannelService) {  }
+  constructor(private channelS: ChannelService, private memberS: MemberService) {  }
 
   ngOnInit() {
-    this.service.list(localStorage.getItem('service_sid')).subscribe
+    this.channelS.list(localStorage.getItem('service_sid')).subscribe
     (
       data => {
         this.channels = data.channels;
@@ -23,6 +26,19 @@ export class ChannelsListComponent implements OnInit {
       },
       err => console.error(err)
     );
+  }
+
+  joinChannel() {
+    console.log(this.channelSid);
+    if (this.identity) {
+      this.memberS.create(localStorage.getItem('service_sid'), this.channelSid, this.identity).subscribe(
+        res => {
+          localStorage.setItem('channel_sid', this.channelSid);
+          localStorage.setItem('member_sid', res.sid);
+        },
+        err => console.error(err)
+      );
+    }
   }
 
 }

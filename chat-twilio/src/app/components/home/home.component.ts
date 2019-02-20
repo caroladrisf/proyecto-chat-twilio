@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   auth() {
-    return localStorage.getItem('auth');
+    return localStorage.getItem('member_sid');
   }
 
 }
