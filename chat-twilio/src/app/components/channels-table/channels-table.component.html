@@ -1,7 +1,6 @@
 <table class="table table-hover table-bordered">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Friendly name</th>
       <th scope="col">Members count</th>
       <th scope="col" colspan="2">
@@ -11,10 +10,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let channel of channels">
-      <th scope="row">1</th>
       <td>{{ channel.friendly_name }}</td>
       <td>{{ channel.members_count }}</td>
-      <td><button class="btn btn-primary btn-sm">Edit</button></td>
+      <td><button class="btn btn-primary btn-sm disabled">Edit</button></td>
       <td><button class="btn btn-danger btn-sm" (click)="delete(channel.sid)">Delete</button></td>
     </tr>
   </tbody>
