@@ -30,9 +30,9 @@ export class ChannelService {
     return this.http.get<ChannelsArray>(`${environment.API_URI}/Services/${service}/Channels`, { headers: this.headersGet() });
   }
 
- /*  retrieve(service: string, channel: string): Observable<Channel> {
+  retrieve(service: string, channel: string): Observable<Channel> {
     return this.http.get<Channel>(`${environment.API_URI}/Services/${service}/Channels/${channel}`, { headers: this.headersGet() });
-  } */
+  }
 
   create(service: string, friendlyName: string): Observable<Channel> {
     return this.http.post<Channel>(`${environment.API_URI}/Services/${service}/Channels`, `FriendlyName=${friendlyName}`,

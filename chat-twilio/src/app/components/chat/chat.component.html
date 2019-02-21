@@ -1,12 +1,25 @@
 <div class="jumbotron">
-  <h3>Channel</h3>
+  <div class="d-flex justify-content-between align-items-center">
+    <h3>{{ channel }}</h3>
+    <button class="btn btn-link">members</button>
+  </div>
   <hr>
-  <div class="messages-panel" id="messages"></div>
+  <div>
+    <ul class="list-group list-group-flush" style="background: transparent">
+      <li class="list-group-item flex-column align-items-start" *ngFor="let msg of messages" style="background: transparent">
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1 text-success">{{ msg.from }}</p>
+        </div>
+        <p class="mb-1">{{ msg.body }}</p>
+        <small>{{ msg.date_created }}</small>
+      </li>
+    </ul>
+  </div>
 
   <div class="input-group">
-    <textarea class="form-control type_msg" placeholder="Type your message..."></textarea>
+    <input type="text" class="form-control" [(ngModel)]="msg" name="message" placeholder="Type your message...">
     <div class="input-group-append">
-      <button type="button" class="input-group-text" onclick="alert('sending...')"><i class="fas fa-location-arrow"></i></button>
+      <button type="button" class="input-group-text" (click)="sendMessage()"><i class="fas fa-location-arrow"></i></button>
     </div>
   </div>
 </div>
