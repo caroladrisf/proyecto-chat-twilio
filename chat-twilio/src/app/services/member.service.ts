@@ -30,6 +30,11 @@ export class MemberService {
      { headers: this.headersGet() });
   }
 
+  retrieve(service: string, channel: string, member: string): Observable<Member> {
+    return this.http.get<Member>(`${environment.API_URI}/Services/${service}/Channels/${channel}/Members/${member}`,
+     { headers: this.headersGet() });
+  }
+
   create(service: string, channel: string, identity: string): Observable<Member> {
     return this.http.post<Member>(`${environment.API_URI}/Services/${service}/Channels/${channel}/Members`, `Identity=${identity}`,
       { headers: this.headersPost() });
