@@ -4,7 +4,7 @@
       <th scope="col">Friendly name</th>
       <th scope="col">Members count</th>
       <th scope="col" colspan="2">
-        Options <!-- <a class="btn btn-link" (click)="getList()"><i class="fas fa-sync"></i></a> -->
+        Options <button class="btn btn-link ml-2" (click)="getList()"><i class="fas fa-sync-alt"></i></button>
       </th>
     </tr>
   </thead>
@@ -12,7 +12,7 @@
     <tr *ngFor="let channel of channels">
       <td>{{ channel.friendly_name }}</td>
       <td>{{ channel.members_count }}</td>
-      <td><button class="btn btn-primary btn-sm disabled">Edit</button></td>
+      <td><button class="btn btn-secondary btn-sm disabled">Edit</button></td>
       <td><button class="btn btn-danger btn-sm" (click)="delete(channel.sid)">Delete</button></td>
     </tr>
   </tbody>

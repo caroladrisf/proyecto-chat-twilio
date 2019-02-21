@@ -18,10 +18,8 @@ export class ChannelsFormComponent implements OnInit {
   save() {
     if (this.friendlyName) {
       this.service.create(localStorage.getItem('service_sid'), this.friendlyName).subscribe(
-        res => {
-          console.log(res);
-          this.router.navigate(['/channels']);
-        }
+        res => this.friendlyName = '',
+        err => console.error(err)
       );
     } else {
       alert('Friendly name is required');
